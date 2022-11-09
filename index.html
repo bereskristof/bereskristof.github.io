@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Site</title>
+</head>
+<body>
+    <main>
+        <!-- <div class="banner"></div> -->
+        <h1>Git commit signing</h1>
+        <nav>
+            <h2 class="navtitle">Navigation</h2>
+            <ol>
+                <li><a href="./index.html#ssh-key-generate">Generate & add SSH key</a></li>
+                <li><a href="./index.html#gpg-key-migrate">Migrate existing GPG key</a></li>
+                <li><a href="./index.html#gpg-key-generate">Generate & add GPG key</a></li>
+                <li><a href="./index.html#gpg-key-git">Add GPG key to Git CLI</a></li>
+            </ol>
+        </nav>
+        <section id="ssh-key-generate">
+            <h2>Generate & add SSH key</h2>
+            <ul>
+                <li>Generate SSH key</li>
+                <div class="codeblock"><code><span class="block">> </span>ssh-keygen -t ed25519 -C "email@domain.com"</code></div>
+                <li>Start ssh-agent if needed</li>
+                <div class="codeblock"><code><span class="block">> </span>eval "$(ssh-agent -s)"</code></div>
+                <li>Add SSH key to ssh-agent</li>
+                <div class="codeblock"><code><span class="block">> </span>ssh-add ~/.ssh/id_ed25519</code></div>
+                <li>Copy echoed SSH public key</li>
+                <div class="codeblock"><code><span class="block">> </span>cat ~/.ssh/id_ed25519.pub</code></div>
+                <li>Add to github account</li>
+                <a href="https://github.com/settings/keys">https://github.com/settings/keys</a>
+            </ul>
+        </section>
+        <section id="gpg-key-migrate">
+            <h2>Migrate existing GPG key</h2>
+            <ul>
+                <li>Export public key into public.key</li>
+                <div class="codeblock"><code><span class="block">> </span>gpg --export -a $KEY_UID > public.key</code></div>
+                <li>Export private key into public.key</li>
+                <div class="codeblock"><code><span class="block">> </span>gpg --export-secret-key -a $KEY_UID > private.key</code></div>
+                <li>Modify encoding if needed</li>
+                <li>Import public key</li>
+                <div class="codeblock"><code><span class="block">> </span>gpg --import public.key</code></div>
+                <li>Import private key</li>
+                <div class="codeblock"><code><span class="block">> </span>gpg --import private.key</code></div>
+                <li><a href="./index.html#gpg-key-git">Tell git about the GPG key</a></li>
+            </ul>
+        </section>
+        <section id="gpg-key-generate">
+            <h2>Generate & add GPG key</h2>
+            <ul>
+                <li>Generate GPG key</li>
+                <div class="codeblock"><code><span class="block">> </span>gpg --full-generate-key</code></div>
+                <li>List secret keys and copy the key ID</li>
+                <div class="codeblock"><code><span class="block">> </span>gpg --list-secret-keys --keyid-format=long<br>
+                sec   4096R/<span class="highlight">3AA5C34371567BD2</span> 2016-03-10 [expires: 2017-03-10]</code></div>
+                <li>Export then copy GPG key ID</li>
+                <div class="codeblock"><code><span class="block">> </span>gpg --armor --export <span class="highlight">3AA5C34371567BD2</span> > gpg.key</code></div>
+                <li>Add to github account</li>
+                <a href="https://github.com/settings/keys">https://github.com/settings/keys</a>
+                <li><a href="./index.html#gpg-key-git">Tell git about the GPG key</a></li>
+            </ul>
+        </section>
+        <section id="gpg-key-git">
+            <h2>Add GPG key to Git CLI</h2>
+            <ul>
+                <li>List secret keys and copy the key ID</li>
+                <div class="codeblock"><code><span class="block">> </span>gpg --list-secret-keys --keyid-format=long<br>
+                sec   4096R/<span class="highlight">3AA5C34371567BD2</span> 2016-03-10 [expires: 2017-03-10]</code></div>
+                <li>Set GPG signing key in Git</li>
+                <div class="codeblock"><code><span class="block">> </span>git config --global user.signingkey <span class="highlight">3AA5C34371567BD2</span></code></div>
+                <li>To sign commits by default</li>
+                <div class="codeblock"><code><span class="block">> </span>git config --global commit.gpgsign true</code></div>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

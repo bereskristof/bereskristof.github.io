@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Titillium+Web:wght@400;700&display=swap');
+
+body {
+    background-color: #111;
+    color: aliceblue;
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+}
+
+main {
+    background-color: #181818;
+    width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    box-shadow: black 0 0 5px;
+}
+
+/* .banner {
+    height: 130px;
+    background-image: url(https://images.pexels.com/photos/355770/pexels-photo-355770.jpeg?auto=compress&cs=tinysrgb&w=800&h=371);
+    background-position: 50% 80%;
+} */
+
+h1 {
+    animation: wipe 5s ease;
+    background-color: #1D1D1D;
+    background-image: linear-gradient(to right, #ff9999 1%, #1d1d1d 1%);
+    animation: fade 2s;
+    padding: 5px 15px;
+    border: 1px solid #444;
+    border-width: 1px 0 1px 0;
+    margin: 0;
+}
+
+h2 {
+    background-color: #222;
+    padding: 0 15px 0 15px;
+    border: 1px solid #444;
+    border-width: 1px 0 1px 0;
+    margin: 12px 0 0 0;
+}
+
+.navtitle {
+    font-size: large;
+    background: none;
+    border: none;
+}
+
+nav > ol {
+    list-style: upper-roman;
+    margin: 10px 0 16px 0;
+}
+
+.codeblock {
+    background-color: #222;
+    margin: 5px 40px 5px 0;
+    padding: 5px 12px;
+    border-radius: 5px;
+    border-width: 1px 0 1px 0;
+}
+
+code {
+    font-family: 'Fira Mono', monospace;
+    font-size: small;
+}
+
+li {
+    margin-top: 8px;
+}
+
+.block {
+    user-select: none;
+    color: #99ffff;
+}
+
+a {
+    color: #99ffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited:hover {
+    color: #9999ff;
+
+}
+
+.highlight {
+    color: #ffdddd;
+}
