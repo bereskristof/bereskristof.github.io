@@ -18,6 +18,7 @@
                 <li><a href="./index.html#gpg-key-migrate">Migrate existing GPG key</a></li>
                 <li><a href="./index.html#gpg-key-generate">Generate & add GPG key</a></li>
                 <li><a href="./index.html#gpg-key-git">Add GPG key to Git CLI</a></li>
+                <li><a href="./index.html#login-to-git">Login to Git CLI</a></li>
             </ol>
         </nav>
         <section id="ssh-key-generate">
@@ -75,6 +76,15 @@
                 <div class="codeblock"><code><span class="block">> </span>git config --global user.signingkey <span class="highlight">3AA5C34371567BD2</span></code></div>
                 <li>To sign commits by default</li>
                 <div class="codeblock"><code><span class="block">> </span>git config --global commit.gpgsign true</code></div>
+            </ul>
+        </section>
+        <section id="login-to-git">
+            <h2>Login to Git CLI</h2>
+            <ul>
+                <li>Add username to Git</li>
+                <div class="codeblock"><code><span class="block">> </span>git config --global user.name "username"</code></div>
+                <li>Add email to Git</li>
+                <div class="codeblock"><code><span class="block">> </span>git config --global user.email "email@domain.com</code></div>
             </ul>
         </section>
     </main>
